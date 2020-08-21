@@ -1,13 +1,13 @@
 #!/usr/bin/env groovy
 
-def call(String environment_name) {
+def call(Map config) {
     stages {
-        stage("Deploy${environment_name}") {
+        stage("Deploy${config.environment_name}") {
             steps {
                 echo "Deploy App Here"
             }
         }
-        stage("PostDeploy${environment_name}") {
+        stage("PostDeploy${config.environment_name}") {
             steps {
                 echo "Run Post Deploy Tests Here"
             }

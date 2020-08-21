@@ -7,7 +7,9 @@ pipeline {
     stage('Dev') {
       steps {
         script {
-          groovy-test "dev"
+          groovy-test(
+            environment_name: "dev"
+          )
         }
       }
     }
