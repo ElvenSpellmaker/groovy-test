@@ -5,10 +5,20 @@ pipeline {
 
   stages {
     stage('Dev') {
-      steps {
-        script {
-          deployApp
+      agent {
+        docker {
+          image "azul/zulu-openjdk-debian:11"
         }
+      }
+
+      steps {
+        echo "before bleh!"
+
+        script {
+          deployApp()
+        }
+
+        echo "bleh!"
       }
     }
     stage('Regular run') {
